@@ -14,6 +14,7 @@
     <p id="current-word-text"></p>
     <p id="number-remaning-guesses-text"></p>
     <p id="letters-already-guessed-text"></p>
+    <p id="previous-word-text"></p>
   </div>
 
   <script type="text/javascript">
@@ -46,6 +47,7 @@
     var wins = 0;
     var guesses = 0;
     var currentWord = 0;
+    var currentGame = "";
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -53,18 +55,34 @@
     var currentWordText = document.getElementById("current-word-text");
     var guessesText = document.getElementById("number-remaining-guesses-text");
     var lettersText = document.getElementById("letters-already-guessed-text");
+    var previousWord = document.getElementById("previous-word-text")
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
 
       // Determines which key was pressed.
       var userGuess = event.key;
+      
+      
+        var currentWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+        var currentArray = (Array.from(currentWord));
+        for (var i = 0; i < currentArray.length; i++) {
+            currentGame += "_ ";
+      }
 
+
+      currentWordText.textContent = "Current Word" + currentGame;
+      console.log(currentGame);
+        console.log(Array.from(currentWord));
+
+        currentGame = "";
+
+      
       // Randomly chooses a choice from the options array. This is the Computer's guess.
-      var currentWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+      
 
       // Reworked our code from last step to use "else if" instead of lots of if statements.
-      console.log(Array.from(currentWord));
+      
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
       if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
 
