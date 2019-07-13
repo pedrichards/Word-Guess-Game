@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 7</title>
+  <title>Word Guess</title>
 </head>
 
 <body>
@@ -48,6 +48,8 @@
     var guesses = 0;
     var currentWord = 0;
     var currentGame = "";
+    var guessedLetters = "";
+    var currentWordArray = [];
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -64,18 +66,44 @@
       var userGuess = event.key;
       
       
-        var currentWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
-        var currentArray = (Array.from(currentWord));
-        for (var i = 0; i < currentArray.length; i++) {
-            currentGame += "_ ";
+      if (currentGame === "") {
+        currentWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+        currentWordArray = (Array.from(currentWord));
+        for (var i = 0; i < currentWordArray.length; i++) {
+            currentGame += "_";
+      }
+      }
+
+      
+
+      else {
+        for (var i = 0; i < currentWordArray.length; i++) {
+            var letterInWord = currentWordArray[i];
+            if (userGuess === letterInWord) {
+              var currentGuessArray = (Array.from(currentGame));
+              currentGuessArray[i] = userGuess;
+              currentGame = currentGuessArray.join("");
+              
+
+            }
+
       }
 
 
-      currentWordText.textContent = "Current Word" + currentGame;
-      console.log(currentGame);
-        console.log(Array.from(currentWord));
+      }
+      
+      
 
-        currentGame = "";
+    
+        currentWordText.textContent = "Current Word" + currentGame;
+        
+        //console.log(currentGame);
+        
+        //console.log(Array.from(currentWord));
+        
+        //currentGame = "";
+      
+      
 
       
       // Randomly chooses a choice from the options array. This is the Computer's guess.
