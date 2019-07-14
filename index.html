@@ -88,9 +88,9 @@
 
       else {
           if (guessedLettersArray.indexOf(userGuess) === -1){
-            guessedLetters += userGuess;
             guessedLettersArray = (Array.from(guessedLetters));
             currentGuessArray[i] = userGuess;
+            guessedLetters += userGuess;
           }
  
         
@@ -110,7 +110,6 @@
 
 
             }
-      }
       //If guesses are down to zero game over, you lose is 
 
       //Else, if you have gotten your currentgame string to equal the word to be guessed(CurrentWord) "you win" and wins go up by one
