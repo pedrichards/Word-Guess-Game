@@ -90,9 +90,12 @@
           if (guessedLettersArray.indexOf(userGuess) === -1){
             guessedLettersArray = (Array.from(guessedLetters));
             currentGuessArray[i] = userGuess;
-            guessedLetters += userGuess;
           }
  
+          //If the userGuess is not found among the already guessed letters, in the guessedLetters string...
+          //Nor in the current Game
+          //guessedLetters += userGuess;
+
         
       for (var i = 0; i < currentWordArray.length; i++) {
             letterInWord = currentWordArray[i];
