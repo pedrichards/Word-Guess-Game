@@ -51,6 +51,7 @@
     var guessedLetters = "";
     var currentWordArray = [];
     var guessedLettersArray = [];
+    var letterInWord = [];
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -88,32 +89,55 @@
       else {
           if (guessedLettersArray.indexOf(userGuess) === -1){
             guessedLetters += userGuess;
-            guesses -= guesses;
+            guessedLettersArray = (Array.from(guessedLetters));
+            currentGuessArray[i] = userGuess;
           }
-      // console.log(guessedLetters)
-      
-
+ 
+        
       for (var i = 0; i < currentWordArray.length; i++) {
-            var letterInWord = currentWordArray[i];
+            letterInWord = currentWordArray[i];
             if (userGuess === letterInWord) {
               var currentGuessArray = (Array.from(currentGame));
-              currentGuessArray[i] = userGuess;
               currentGame = currentGuessArray.join("");
               }
+            
+            //If the userGuess is not among the letters already guessed or it is fou
+            //   if (guessedLettersArray.indexOf(userGuess) === -1)||
+            // (userGuess === letterInWord){
+            //   guesses = (guesses-1);
+
+            }
+
+
             }
       }
-      
+      //If guesses are down to zero game over, you lose is 
+
+      //Else, if you have gotten your currentgame string to equal the word to be guessed(CurrentWord) "you win" and wins go up by one
+
+
+        //If there are no guesses or the currentgame string equals the word to be guessed(currentWord), set current game back to ""
+      //if (guesses = 0)||()
+       //currentGame = "";
+
+
+          
+
+      console.log(guessedLetters);
+      console.log(guesses);
  
       
 
     
         currentWordText.textContent = "Current Word" + currentGame;
+
+        guessesText.textContent = "Letters Already Guessed" + guessedLetters;
         
         console.log(currentGame);
         
         console.log(Array.from(currentWord));
         
-        //currentGame = "";
+       
       
       
 
