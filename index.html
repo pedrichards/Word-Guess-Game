@@ -45,11 +45,12 @@
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var wins = 0;
-    var guesses = 0;
+    var guesses = 13;
     var currentWord = 0;
     var currentGame = "";
     var guessedLetters = "";
     var currentWordArray = [];
+    var guessedLettersArray = [];
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -74,32 +75,43 @@
       }
       }
 
-      
+
+
+      //   for (var i = 0; i < guessedLettersArray.length; i++) {
+      //     var letterAlreadyGuessed = guessedLettersArray[i];
+      //     if (userGuess !== letterAlreadyGuessed) {
+      //       
+      //       }
+      //    }
+      // }
 
       else {
-        for (var i = 0; i < currentWordArray.length; i++) {
+          if (guessedLettersArray.indexOf(userGuess) === -1){
+            guessedLetters += userGuess;
+            guesses -= guesses;
+          }
+      // console.log(guessedLetters)
+      
+
+      for (var i = 0; i < currentWordArray.length; i++) {
             var letterInWord = currentWordArray[i];
             if (userGuess === letterInWord) {
               var currentGuessArray = (Array.from(currentGame));
               currentGuessArray[i] = userGuess;
               currentGame = currentGuessArray.join("");
-              
-
+              }
             }
-
-      }
-
-
       }
       
+ 
       
 
     
         currentWordText.textContent = "Current Word" + currentGame;
         
-        //console.log(currentGame);
+        console.log(currentGame);
         
-        //console.log(Array.from(currentWord));
+        console.log(Array.from(currentWord));
         
         //currentGame = "";
       
@@ -112,29 +124,28 @@
       // Reworked our code from last step to use "else if" instead of lots of if statements.
       
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+      // if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
 
-        if ((userGuess === "r" && computerGuess === "s") ||
-          (userGuess === "s" && computerGuess === "p") || 
-          (userGuess === "p" && computerGuess === "r")) {
-          wins++;
-        } else if (userGuess === computerGuess) {
-          ties++;
-        } else {
-          losses++;
-        }
+      //   if ((userGuess === "r" && computerGuess === "s") ||
+      //     (userGuess === "s" && computerGuess === "p") || 
+      //     (userGuess === "p" && computerGuess === "r")) {
+      //     wins++;
+      //   } else if (userGuess === computerGuess) {
+      //     ties++;
+      //   } else {
+      //     losses++;
+      //   }
 
         // Hide the directions
         directionsText.textContent = "";
 
         // Display the user and computer guesses, and wins/losses/ties.
-        userChoiceText.textContent = "You chose: " + userGuess;
-        computerChoiceText.textContent = "The computer chose: " + computerGuess;
-        winsText.textContent = "wins: " + wins;
-        lossesText.textContent = "losses: " + losses;
-        tiesText.textContent = "ties: " + ties;
-      }
-    };
+        // userChoiceText.textContent = "You chose: " + userGuess;
+        // computerChoiceText.textContent = "The computer chose: " + computerGuess;
+        // winsText.textContent = "wins: " + wins;
+        // lossesText.textContent = "losses: " + losses;
+        // tiesText.textContent = "ties: " + ties;
+      };
   </script>
 
 </body>
