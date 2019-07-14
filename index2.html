@@ -83,9 +83,10 @@
 
       guessedLettersArray = (Array.from(guessedLetters));
 
-      if (guessedLettersArray.indexOf(userGuess) === -1){
-            currentGuessArray[i] = userGuess;
-            guessedLetters += userGuess;
+      if ((guessedLettersArray.indexOf(userGuess) === -1) && (currentWordArray.indexOf(userGuess) === -1)){
+                guessedLetters += userGuess;
+            
+            
             }
 
       }
