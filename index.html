@@ -48,7 +48,7 @@
     var guesses = 13;
     var currentWord = 0;
     var currentGame = "";
-    var guessedLetters = "";
+    var guessedLetters = " ";
     var currentWordArray = [];
     var guessedLettersArray = [];
     var letterInWord = [];
@@ -73,28 +73,24 @@
         currentWordArray = (Array.from(currentWord));
         for (var i = 0; i < currentWordArray.length; i++) {
             currentGame += "_";
+        }
       }
-      }
 
 
 
-      //   for (var i = 0; i < guessedLettersArray.length; i++) {
-      //     var letterAlreadyGuessed = guessedLettersArray[i];
-      //     if (userGuess !== letterAlreadyGuessed) {
-      //       
-      //       }
-      //    }
-      // }
+
 
       else {
           if (guessedLettersArray.indexOf(userGuess) === -1){
             guessedLettersArray = (Array.from(guessedLetters));
             currentGuessArray[i] = userGuess;
-          }
+            guessedLetters += userGuess;
+            }
  
           //If the userGuess is not found among the already guessed letters, in the guessedLetters string...
           //Nor in the current Game
-          //guessedLetters += userGuess;
+        
+
 
         
       for (var i = 0; i < currentWordArray.length; i++) {
@@ -103,24 +99,47 @@
               var currentGuessArray = (Array.from(currentGame));
               currentGame = currentGuessArray.join("");
               }
+            }
+          }  
             
             //If the userGuess is not among the letters already guessed or it is fou
             //   if (guessedLettersArray.indexOf(userGuess) === -1)||
             // (userGuess === letterInWord){
             //   guesses = (guesses-1);
 
-            }
+      // function guessAdjust() {
+      //   if ((guessedLettersArray.indexOf(userGuess) > 0)||
+      //      (userGuess !== letterInWord)){
+      //         guesses = (guesses-1);
+      //      }
+      //     }
+          
+      // guessAdjust();
 
+      // //If guesses are down to zero game over, you lose is 
 
-            }
-      //If guesses are down to zero game over, you lose is 
-
-      //Else, if you have gotten your currentgame string to equal the word to be guessed(CurrentWord) "you win" and wins go up by one
-
+      // //Else, if you have gotten your currentgame string to equal the word to be guessed(CurrentWord) "you win" and wins go up by one
+      // function endGame() {
+      //   if (guesses === 0) {
+      //     Alert ("You lose");
+      //     }
+      //   else if (currentGame === currentWord) {
+      //     Alert ("You Win");
+      //     }
+      //     if ((guesses === 0) || (currentGame === currentWord)) {
+      //     currentGame = "";
+      //  }
+      //   }
+      // endGame()
+      //       ;
 
         //If there are no guesses or the currentgame string equals the word to be guessed(currentWord), set current game back to ""
       //if (guesses = 0)||()
-       //currentGame = "";
+      //function endGame() {
+       //if ((guesses === 0) || (currentGame === currentWord)) {
+        //  currentGame = "";
+       //}
+     // }
 
 
           
@@ -133,7 +152,7 @@
     
         currentWordText.textContent = "Current Word" + currentGame;
 
-        guessesText.textContent = "Letters Already Guessed" + guessedLetters;
+        lettersText.textContent = "Letters Already Guessed" + guessedLettersArray;
         
         console.log(currentGame);
         
