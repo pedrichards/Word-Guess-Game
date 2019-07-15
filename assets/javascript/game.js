@@ -23,7 +23,8 @@
         "tile",
         "window",
         "roof",
-        "quoin"];
+        "quoin",
+        "post"];
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var wins = 0;
     var guesses = 13;
@@ -76,7 +77,7 @@
 
       if ((guessedLettersArray.indexOf(userGuess) === -1) &&
        (currentGuessArray.indexOf(userGuess) === -1)){
-                guessedLetters += userGuess;
+                guessedLetters += userGuess.toUpperCase();
             }
 
       if ((guessedLettersArray.indexOf(userGuess) === -1) ||
@@ -104,7 +105,7 @@
     }
       
       
-      currentWordText.textContent = "Current Word" + currentGame;
+      currentWordText.textContent = currentGame;
       lettersText.textContent = "Letters Already Guessed" + guessedLetters;
       guessesText.textContent = "Remaining Guesses:" + guesses;
       winsText.textContent = "Wins:" + wins;
