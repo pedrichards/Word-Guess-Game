@@ -76,7 +76,7 @@
 
       if ((guessedLettersArray.indexOf(userGuess) === -1)||
           (currentGuessArray.indexOf(userGuess) === -1)){
-          guesses = (guesses-1);
+          // guesses = (guesses-1);
       }
 
         for (var i = 0; i < currentWordArray.length; i++) {
@@ -100,14 +100,12 @@
       guesses = (guesses-1);
     }
 
-    currentWordText.textContent = "Current Word" + currentGame;
-        lettersText.textContent = "Letters Already Guessed" + guessedLetters;
-        guessesText.textContent = "Remaining Guesses:" + guesses;
-
       }
       
       
-    
+      currentWordText.textContent = "Current Word" + currentGame;
+      lettersText.textContent = "Letters Already Guessed" + guessedLetters;
+      guessesText.textContent = "Remaining Guesses:" + guesses;
 
         
         console.log(guesses);
