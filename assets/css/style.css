@@ -11,13 +11,15 @@ body {
   }
   
   .hero-image {
-    background-image: url("assets\images\AiravatesvaraTemple.jpg");
+    background: url("assets\images\AiravatesvaraTemple.jpg");
     background-color: #cccccc;
-    height: 700px;
+    height: 275px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    display: block;
+    overflow: hidden;
   }
   
   .hero-text {
