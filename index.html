@@ -12,7 +12,7 @@
     <p id="directions-text">Press any key to get started!</p>
     <p id="wins-text"></p>
     <p id="current-word-text"></p>
-    <p id="number-remaning-guesses-text"></p>
+    <p id="number-remaining-guesses-text"></p>
     <p id="letters-already-guessed-text"></p>
     <p id="previous-word-text"></p>
   </div>
@@ -74,10 +74,10 @@
       else {
         guessedLettersArray = (Array.from(guessedLetters));
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1)||
-          (currentGuessArray.indexOf(userGuess) === -1)){
-          // guesses = (guesses-1);
-      }
+      // if ((guessedLettersArray.indexOf(userGuess) === -1)||
+      //     (currentGuessArray.indexOf(userGuess) === -1)){
+      //     guesses = (guesses-1);
+      // }
 
         for (var i = 0; i < currentWordArray.length; i++) {
             var letterInWord = currentWordArray[i];
@@ -85,7 +85,6 @@
               var currentGuessArray = (Array.from(currentGame));
               currentGuessArray[i] = userGuess;
               currentGame = currentGuessArray.join("");
-              
             }
       }
 
@@ -98,9 +97,9 @@
       if ((guessedLettersArray.indexOf(userGuess) === -1)||
       (currentGuessArray.indexOf(userGuess) === -1)){
       guesses = (guesses-1);
-    }
-
       }
+
+    }
       
       
       currentWordText.textContent = "Current Word" + currentGame;
