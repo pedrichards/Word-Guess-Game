@@ -35,6 +35,7 @@
     var userGuess = "";
     var currentGuessArray = [];
     var previousWord = "";
+    var alphabet = [];
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -46,6 +47,8 @@
     var winningText = document.getElementById("winning-text");
     var winsText = document.getElementById("wins-text");
 
+   
+    
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
       // Determines which key was pressed.
@@ -73,15 +76,19 @@
             }
       }
 
-      
+      for (var i = 97; i <= 121; i++) {
+        alphabet[alphabet.length] = String.fromCharCode(i);
+        };
 
       if ((guessedLettersArray.indexOf(userGuess) === -1) &&
-       (currentGuessArray.indexOf(userGuess) === -1)){
+       (currentGuessArray.indexOf(userGuess) === -1)  &&
+       (alphabet.indexOf(userGuess) > -1)){
                 guessedLetters += userGuess.toUpperCase();
             }
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1) ||
-      (currentGuessArray.indexOf(userGuess) === -1)){
+      if (((guessedLettersArray.indexOf(userGuess) === -1) ||
+      (currentGuessArray.indexOf(userGuess) === -1))  &&
+      (alphabet.indexOf(userGuess)) > -1){
       guesses = (guesses-1);
       }
 
