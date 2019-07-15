@@ -50,6 +50,8 @@
     var guessedLetters = "";
     var currentWordArray = [];
     var userGuess = "";
+    var currentGuessArray = [];
+
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
     var winsText = document.getElementById("wins-text");
@@ -74,15 +76,11 @@
       else {
         guessedLettersArray = (Array.from(guessedLetters));
 
-      // if ((guessedLettersArray.indexOf(userGuess) === -1)||
-      //     (currentGuessArray.indexOf(userGuess) === -1)){
-      //     guesses = (guesses-1);
-      // }
 
         for (var i = 0; i < currentWordArray.length; i++) {
             var letterInWord = currentWordArray[i];
             if (userGuess === letterInWord) {
-              var currentGuessArray = (Array.from(currentGame));
+              currentGuessArray = (Array.from(currentGame));
               currentGuessArray[i] = userGuess;
               currentGame = currentGuessArray.join("");
             }
@@ -90,14 +88,25 @@
 
       
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1) && (currentWordArray.indexOf(userGuess) === -1)){
+      if ((guessedLettersArray.indexOf(userGuess) === -1) &&
+       (currentGuessArray.indexOf(userGuess) === -1)){
                 guessedLetters += userGuess;
             }
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1)||
+      if ((guessedLettersArray.indexOf(userGuess) === -1)&&
       (currentGuessArray.indexOf(userGuess) === -1)){
       guesses = (guesses-1);
       }
+
+      if ((guesses === 0) && (currentGame !== currentWord)) {
+          Alert ("You lose");
+          }
+        else if (currentGame === currentWord) {
+          Alert ("You Win");
+          }
+          if ((guesses === 0) || (currentGame === currentWord)) {
+          currentGame = "";
+       }
 
     }
       
