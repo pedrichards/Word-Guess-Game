@@ -15,6 +15,7 @@
     <p id="number-remaining-guesses-text"></p>
     <p id="letters-already-guessed-text"></p>
     <p id="previous-word-text"></p>
+    <p id="winning-text"></p>
   </div>
 
   <script type="text/javascript">
@@ -51,6 +52,7 @@
     var currentWordArray = [];
     var userGuess = "";
     var currentGuessArray = [];
+    var previousWord = "";
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
@@ -58,7 +60,9 @@
     var currentWordText = document.getElementById("current-word-text");
     var guessesText = document.getElementById("number-remaining-guesses-text");
     var lettersText = document.getElementById("letters-already-guessed-text");
-    var previousWord = document.getElementById("previous-word-text")
+    var previousWordText = document.getElementById("previous-word-text");
+    var winningText = document.getElementById("winning-text");
+
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
       // Determines which key was pressed.
@@ -93,20 +97,24 @@
                 guessedLetters += userGuess;
             }
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1)&&
+      if ((guessedLettersArray.indexOf(userGuess) === -1) ||
       (currentGuessArray.indexOf(userGuess) === -1)){
       guesses = (guesses-1);
       }
 
-      if ((guesses === 0) && (currentGame !== currentWord)) {
-          Alert ("You lose");
+
+      if (currentGame === currentWord) {
+          winningText.textContent = "You win!";
+          previousWordText.textContent = currentWord;
+          wins++;
           }
-        else if (currentGame === currentWord) {
-          Alert ("You Win");
+      else if (guesses === 0) {
+        winningText.textContent = "You lose";
           }
-          if ((guesses === 0) || (currentGame === currentWord)) {
-          currentGame = "";
-       }
+
+      if ((guesses === 0) || (currentGame === currentWord)) {
+          //currentGame = "";
+          }
 
     }
       
@@ -114,7 +122,7 @@
       currentWordText.textContent = "Current Word" + currentGame;
       lettersText.textContent = "Letters Already Guessed" + guessedLetters;
       guessesText.textContent = "Remaining Guesses:" + guesses;
-
+      
         
         console.log(guesses);
         
