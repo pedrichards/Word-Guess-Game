@@ -49,7 +49,7 @@
     var currentGame = "";
     var guessedLetters = "";
     var currentWordArray = [];
-    var userGuess = "";
+    var guessedLettersArray = [];
     // Create variables that hold references to the places in the HTML where we want to display things.
     var directionsText = document.getElementById("directions-text");
     var winsText = document.getElementById("wins-text");
@@ -60,7 +60,7 @@
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
       // Determines which key was pressed.
-      userGuess = event.key;
+      var userGuess = event.key;
       
       
       if (currentGame === "") {
@@ -70,49 +70,38 @@
             currentGame += "_";
       }
       }
-      
+      //   for (var i = 0; i < guessedLettersArray.length; i++) {
+      //     var letterAlreadyGuessed = guessedLettersArray[i];
+      //     if (userGuess !== letterAlreadyGuessed) {
+      //       
+      //       }
+      //    }
+      // }
       else {
-        guessedLettersArray = (Array.from(guessedLetters));
-
-      if ((guessedLettersArray.indexOf(userGuess) === -1)||
-          (currentGuessArray.indexOf(userGuess) === -1)){
-          guesses = (guesses-1);
-      }
-
-        for (var i = 0; i < currentWordArray.length; i++) {
+          if (guessedLettersArray.indexOf(userGuess) === -1){
+            guessedLetters += userGuess;
+            guesses -= guesses;
+          }
+      // console.log(guessedLetters)
+      
+      for (var i = 0; i < currentWordArray.length; i++) {
             var letterInWord = currentWordArray[i];
             if (userGuess === letterInWord) {
               var currentGuessArray = (Array.from(currentGame));
               currentGuessArray[i] = userGuess;
               currentGame = currentGuessArray.join("");
-              
+              }
             }
       }
-
       
-
-      if ((guessedLettersArray.indexOf(userGuess) === -1) && (currentWordArray.indexOf(userGuess) === -1)){
-                guessedLetters += userGuess;
-            }
-
-      if ((guessedLettersArray.indexOf(userGuess) === -1)||
-      (currentGuessArray.indexOf(userGuess) === -1)){
-      guesses = (guesses-1);
-    }
-
-    currentWordText.textContent = "Current Word" + currentGame;
-        lettersText.textContent = "Letters Already Guessed" + guessedLetters;
-        guessesText.textContent = "Remaining Guesses:" + guesses;
-
-      }
-      
+ 
       
     
-
+        currentWordText.textContent = "Current Word" + currentGame;
         
-        console.log(guesses);
+        console.log(currentGame);
         
-        //console.log(Array.from(currentWord));
+        console.log(Array.from(currentWord));
         
         //currentGame = "";
       
@@ -123,28 +112,25 @@
       // Reworked our code from last step to use "else if" instead of lots of if statements.
       
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-    //   if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
-    //     if ((userGuess === "r" && computerGuess === "s") ||
-    //       (userGuess === "s" && computerGuess === "p") || 
-    //       (userGuess === "p" && computerGuess === "r")) {
-    //       wins++;
-    //     } else if (userGuess === computerGuess) {
-    //       ties++;
-    //     } else {
-    //       losses++;
-    //     }
-    //     // Hide the directions
+      // if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+      //   if ((userGuess === "r" && computerGuess === "s") ||
+      //     (userGuess === "s" && computerGuess === "p") || 
+      //     (userGuess === "p" && computerGuess === "r")) {
+      //     wins++;
+      //   } else if (userGuess === computerGuess) {
+      //     ties++;
+      //   } else {
+      //     losses++;
+      //   }
+        // Hide the directions
         directionsText.textContent = "";
-    //     // Display the user and computer guesses, and wins/losses/ties.
-    //     userChoiceText.textContent = "You chose: " + userGuess;
-    //     computerChoiceText.textContent = "The computer chose: " + computerGuess;
-    //     winsText.textContent = "wins: " + wins;
-    //     lossesText.textContent = "losses: " + losses;
-    //     tiesText.textContent = "ties: " + ties;
-    //   }
-    };
+        // Display the user and computer guesses, and wins/losses/ties.
+        // userChoiceText.textContent = "You chose: " + userGuess;
+        // computerChoiceText.textContent = "The computer chose: " + computerGuess;
+        // winsText.textContent = "wins: " + wins;
+        // lossesText.textContent = "losses: " + losses;
+        // tiesText.textContent = "ties: " + ties;
+      };
   </script>
 
 </body>
-
-</html>
