@@ -1,13 +1,19 @@
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .hero-text {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 150%;
   }
   
   .hero-image {
     background-image: url("assets\images\AiravatesvaraTemple.jpg");
     background-color: #cccccc;
-    height: 500px;
+    height: 700px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,4 +27,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+  }
+
+  #current-word-text, #letters-already-guessed-text {
+    letter-spacing: 3px;
+
   }
