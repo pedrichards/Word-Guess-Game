@@ -87,7 +87,7 @@
 
       if (currentGame === currentWord) {
           winningText.textContent = "You win!";
-          previousWordText.textContent = currentWord;
+          previousWord = currentWord;
           wins++;
           }
       else if (guesses === 0) {
@@ -96,6 +96,9 @@
 
       if ((guesses === 0) || (currentGame === currentWord)) {
           currentGame = "";
+          guesses = 13;
+          guessedLetters = "";
+
           }
 
     }
@@ -105,6 +108,7 @@
       lettersText.textContent = "Letters Already Guessed" + guessedLetters;
       guessesText.textContent = "Remaining Guesses:" + guesses;
       winsText.textContent = "Wins:" + wins;
+      previousWordText.textContent = previousWord;
       
       
 
