@@ -80,18 +80,18 @@
         alphabet[alphabet.length] = String.fromCharCode(i);
         };
 
-      if ((guessedLettersArray.indexOf(userGuess) === -1) &&
-       (currentGuessArray.indexOf(userGuess) === -1)  &&
-       (alphabet.indexOf(userGuess) > -1)){
-                guessedLetters += userGuess.toUpperCase();
+        if (alphabet.indexOf(userGuess) > -1){
+
+                if ((guessedLettersArray.indexOf(userGuess.toUpperCase()) === -1) &&
+                (currentGuessArray.indexOf(userGuess) === -1)){
+                        guessedLetters += userGuess.toUpperCase();
+                    }
+
+            if ((guessedLettersArray.indexOf(userGuess.toUpperCase()) === -1) &&
+            (currentGuessArray.indexOf(userGuess) === -1)){
+            guesses = (guesses-1);
             }
-
-      if (((guessedLettersArray.indexOf(userGuess) === -1) ||
-      (currentGuessArray.indexOf(userGuess) === -1))  &&
-      (alphabet.indexOf(userGuess)) > -1){
-      guesses = (guesses-1);
-      }
-
+        }
 
       if (currentGame === currentWord) {
           winningText.textContent = "You win!";
