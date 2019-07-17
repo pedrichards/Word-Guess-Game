@@ -76,7 +76,7 @@
             }
       }
 
-      for (var i = 97; i <= 121; i++) {
+      for (var i = 97; i <= 122; i++) {
         alphabet[alphabet.length] = String.fromCharCode(i);
         };
 
