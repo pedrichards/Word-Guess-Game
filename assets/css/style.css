@@ -10,7 +10,7 @@ body {
     line-height: 150%;
   }
   
-  .hero-image {
+  /* .hero-image {
     background: url("assets\images\AiravatesvaraTemple.jpg");
     background-color: #cccccc;
     height: 275px;
@@ -20,7 +20,7 @@ body {
     position: relative;
     display: block;
     overflow: hidden;
-  }
+  } */
   
   .hero-text {
     text-align: center;
